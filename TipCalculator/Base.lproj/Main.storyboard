@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zpg-6e-jyN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zpg-6e-jyN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tip Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,24 +33,33 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pes-WO-Htd">
                                 <rect key="frame" x="122" y="72" width="458" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="billChanging:" destination="BYZ-38-t0r" eventType="editingChanged" id="X61-ws-nET"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kyr-tZ-Mvp">
-                                <rect key="frame" x="550" y="109" width="30" height="33"/>
+                                <rect key="frame" x="530" y="109" width="50" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="hH0-th-GpY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="increasePercent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mJQ-9C-chv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByP-Wv-lWG">
-                                <rect key="frame" x="512" y="109" width="30" height="33"/>
+                                <rect key="frame" x="472" y="109" width="50" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8hS-is-Ocm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                 <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="decreasePercent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kf1-tE-jRY"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="251" horizontalCompressionResistancePriority="75" text="15%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOb-qp-P2I">
-                                <rect key="frame" x="122" y="109" width="382" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-LX-QDF">
                                 <rect key="frame" x="122" y="150" width="458" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -72,6 +81,12 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbG-8V-8E3">
                                 <rect key="frame" x="20" y="191" width="94" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="251" horizontalCompressionResistancePriority="75" text="15%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOb-qp-P2I">
+                                <rect key="frame" x="122" y="109" width="342" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -114,7 +129,13 @@
                             <constraint firstItem="HbG-8V-8E3" firstAttribute="top" secondItem="vLC-tI-cxJ" secondAttribute="top" id="y4Q-p6-tpA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Sex-F1-0Hr"/>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="Sex-F1-0Hr"/>
+                    <connections>
+                        <outlet property="billAmont" destination="pes-WO-Htd" id="0n5-2w-8kC"/>
+                        <outlet property="tip" destination="szZ-LX-QDF" id="7He-7o-WhH"/>
+                        <outlet property="tipPercentage" destination="QOb-qp-P2I" id="qZP-UP-EGE"/>
+                        <outlet property="total" destination="vLC-tI-cxJ" id="dVI-rs-qiV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
